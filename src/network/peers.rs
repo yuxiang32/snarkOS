@@ -1129,7 +1129,7 @@ impl<N: Network, E: Environment> Peer<N, E> {
                                     // Determine if the peer is on a fork (or unknown).
                                     let is_fork = match ledger_reader.get_block_hash(peer.block_header.height()) {
                                         Ok(expected_block_hash) => Some(expected_block_hash != block_hash),
-                                        Err(_) => None,
+                                        Err(_) => Some(true),
                                     };
                                     // Send a `Pong` message to the peer.
                                     if let Err(error) = peer.send(Message::Pong(is_fork, Data::Object(ledger_reader.latest_block_locators()))).await {
