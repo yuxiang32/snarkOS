@@ -65,7 +65,7 @@ pub trait Environment: 'static + Clone + Debug + Default + Send + Sync {
     const HEARTBEAT_IN_SECS: u64 = 9;
     /// The maximum duration in seconds permitted for establishing a connection with a node,
     /// before dropping the connection; it should be no greater than the `HEARTBEAT_IN_SECS`.
-    const CONNECTION_TIMEOUT_IN_MILLIS: u64 = 500;
+    const CONNECTION_TIMEOUT_IN_MILLIS: u64 = 150;
     /// The duration in seconds to sleep in between ping requests with a connected peer.
     const PING_SLEEP_IN_SECS: u64 = 60;
     /// The duration in seconds after which a connected peer is considered inactive or
